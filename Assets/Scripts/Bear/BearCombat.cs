@@ -6,8 +6,9 @@ public class BearCombat : MonoBehaviour
 {
 
     private BearStats stats;
-    private BearVision vision;  
-    
+    private BearVision vision;
+    private float cooldownTimer = 0;
+
 
     void Update()
     {
@@ -17,16 +18,39 @@ public class BearCombat : MonoBehaviour
     public void Initialize(BearStats stats, BearVision vision)
     {
         this.stats = stats;
-        this.vision = vision;       
+        this.vision = vision;
     }
 
     private void Attack()
     {
-        
+        vision.target.GetComponent<PlayerHealth>().TakeDamage(stats.damage);
+        cooldownTimer = stats.attackCooldownTimer;
     }
 
     private void HandleAttack()
     {
-        
+        cooldownTimer -= Time.deltaTime; 
+
+        if (CanAttack())
+        {
+            Attack();
+        }
+    }
+
+    private bool CanAttack()
+    {
+        if (vision.target == null)
+        {
+            return false;
+        }
+
+        float playerDistance = Vector2.Distance(transform.position, vision.target.position);
+
+        if ( playerDistance > stats.attackRange || cooldownTimer > 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

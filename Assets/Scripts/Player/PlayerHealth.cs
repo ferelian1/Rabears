@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float playerHealth { get; private set; }
-    private float currentHealth;
+
+    public float CurrentHealth { get; private set; }
     private float maxHealth = 100f;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        Initialize(maxHealth);
     }
 
     public void Initialize(float initialHealth)
     {
-        currentHealth = initialHealth;
-        playerHealth = currentHealth;
+        CurrentHealth = initialHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        playerHealth = currentHealth;
+        CurrentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
     }
 
-    public void Heal(float healAmount)
+    public void Heal(float amount)
     {
-        currentHealth += healAmount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        playerHealth = currentHealth;
+        CurrentHealth += amount;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, maxHealth);
     }
 
     private void Die()

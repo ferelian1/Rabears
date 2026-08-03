@@ -12,6 +12,6 @@ public class BearStats : ScriptableObject
     public float acceleration = 5f; //acceleration of the bear
     public float detectionRange = 5f; // range of the bear seeing the player
     public float attackRange = 1f; //range of the bear attacking the player
-    public float attackCooldown = 2f; //time between attacks
+    public float attackCooldownTimer = 2f; //time between attacks
 }
 
