@@ -38,7 +38,7 @@ public class BearMovement : MonoBehaviour
 
     public void Stop()
     {
-        rb.velocity = Vector2.zero;
+        direction = Vector2.zero;
     }
 
     public void Rotate(Vector2 direction)

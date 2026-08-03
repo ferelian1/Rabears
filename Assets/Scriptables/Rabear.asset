@@ -16,6 +16,7 @@ MonoBehaviour:
   damage: 10
   walkSpeed: 2.2
   runSpeed: 3.2
-  detectionRange: 2
+  acceleration: 5
+  detectionRange: 1
   attackRange: 1
   attackCooldown: 2
