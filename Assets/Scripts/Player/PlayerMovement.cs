@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 direction;
 
+    public Vector2 LastDirection { get; private set; } = Vector2.right;
+
 
     private Rigidbody2D rb;
    
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>().normalized;   
+        LastDirection = direction != Vector2.zero ? direction : LastDirection; // Update LastDirection only when there's input and keep the last direction when there's no input
     }
 
     private void CalculateSpeed()

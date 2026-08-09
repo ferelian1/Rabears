@@ -25,6 +25,8 @@ public class BearCombat : MonoBehaviour
     {
         vision.target.GetComponent<PlayerHealth>().TakeDamage(stats.damage);
         cooldownTimer = stats.attackCooldownTimer;
+
+        Debug.Log("Bear attacked player for " + stats.damage + " damage.");
     }
 
     private void HandleAttack()

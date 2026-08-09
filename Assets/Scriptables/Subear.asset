@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4809ea766a0e9c646ab552a3559d9d44, type: 3}
   m_Name: Subear
   m_EditorClassIdentifier: 
+  bearName: Subear
   maxHealth: 150
   damage: 12
   walkSpeed: 3.5
   runSpeed: 8
+  acceleration: 5
   detectionRange: 5
   attackRange: 1
-  attackCooldown: 1
+  attackCooldownTimer: 2

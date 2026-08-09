@@ -15,8 +15,9 @@ public class Bear : MonoBehaviour
     [SerializeField] private BearStats stats;
     private BearBrain brain;
     private BearMovement movement;
-
     private BearVision vision;
+    private BearCombat combat;
+    private BearHealth health;
 
     private Rigidbody2D rb;
     private Transform player;
@@ -32,14 +33,17 @@ public class Bear : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         vision = GetComponent<BearVision>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        combat = GetComponent<BearCombat>();
+        health = GetComponent<BearHealth>();
     }
-
 
     private void Start()
     {
         brain.Initialize(stats, movement, vision, currentState);
         movement.Initialize(rb);
         vision.Initialize(player, stats);
+        combat.Initialize(stats, vision);
+        health.Initialize(stats);
     }
 
     private void OnDrawGizmosSelected()

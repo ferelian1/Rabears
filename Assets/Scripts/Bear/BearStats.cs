@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BearStats", menuName = "Stats/BearStats", order = 1)]
 public class BearStats : ScriptableObject
 {
+    public string bearName = "";
     public float maxHealth = 100f; // Maximum health of the bear
     public float damage = 10f; //damage dealt by the bear
     public float walkSpeed = 3.5f; //movement speed of the bear

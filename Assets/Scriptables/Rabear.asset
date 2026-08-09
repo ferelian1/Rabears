@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4809ea766a0e9c646ab552a3559d9d44, type: 3}
   m_Name: Rabear
   m_EditorClassIdentifier: 
+  bearName: Rabear
   maxHealth: 100
   damage: 10
   walkSpeed: 2.2
   runSpeed: 3.2
   acceleration: 5
   detectionRange: 1
-  attackRange: 1
-  attackCooldown: 2
+  attackRange: 3
+  attackCooldownTimer: 2
