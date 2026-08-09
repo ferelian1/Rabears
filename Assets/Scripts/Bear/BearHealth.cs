@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class BearHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BearHealth : MonoBehaviour
 
     private BearStats stats;
 
+    [Inject]
     public void Initialize(BearStats stats)
     {
         this.stats = stats;

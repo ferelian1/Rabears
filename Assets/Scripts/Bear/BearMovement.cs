@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BearMovement : MonoBehaviour
@@ -10,6 +11,8 @@ public class BearMovement : MonoBehaviour
     private float moveSpeed;
     private float acceleration;
 
+
+    [Inject]
     public void Initialize(Rigidbody2D rigidbody)
     {
         rb = rigidbody;

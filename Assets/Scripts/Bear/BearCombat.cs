@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class BearCombat : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BearCombat : MonoBehaviour
         HandleAttack();
     }
 
+    [Inject]
     public void Initialize(BearStats stats, BearVision vision)
     {
         this.stats = stats;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Zenject;
 
 public class BearVision : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class BearVision : MonoBehaviour
 
     private Action OnPlayerDetected;
 
+    [Inject]
     public void Initialize(Transform player, BearStats stats)
     {
         playerTransform = player;

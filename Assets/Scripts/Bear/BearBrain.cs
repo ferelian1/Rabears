@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Zenject;
 
 public class BearBrain : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class BearBrain : MonoBehaviour
     private Vector2 playerPosition;
     private BearState currentState;
 
+    [Inject]
     public void Initialize(BearStats stats, BearMovement movement, BearVision vision, BearState currentState)
     {
         this.stats = stats;
