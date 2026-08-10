@@ -4,21 +4,27 @@ using UnityEngine;
 using System;
 using Zenject;
 
+public enum BearState
+{
+    Idle,
+    Chasing,
+    Attacking
+}
+
 public class BearBrain : MonoBehaviour
 {
     private BearStats stats;
     private BearMovement movement;
     private BearVision vision;
     private Vector2 playerPosition;
-    private BearState currentState;
+    private BearState currentState = BearState.Idle;
 
     [Inject]
-    public void Initialize(BearStats stats, BearMovement movement, BearVision vision, BearState currentState)
+    public void Initialize(BearStats stats, BearMovement movement, BearVision vision)
     {
         this.stats = stats;
         this.movement = movement;
         this.vision = vision;
-        this.currentState = currentState;
     }
 
     private void Update()
